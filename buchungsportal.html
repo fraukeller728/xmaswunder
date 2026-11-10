@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEIHNACHTS WUNDER // 24 STUNDEN UNTERRICHT - Buchung & Verlosung</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Space Grotesk & Permanent Marker for authentic Memphis Pop look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        memphis: {
+                            pink: '#FF007F',
+                            cyan: '#00F0FF',
+                            yellow: '#FFE600',
+                            purple: '#9D00FF',
+                            orange: '#FF5F00',
+                            lime: '#00FF66',
+                            bg: '#FAF4EB',
+                            dark: '#121212'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        marker: ['"Permanent Marker"', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Memphis Style Patterns & Shadows */
+        body {
+            background-color: #FAF4EB;
+            background-image: 
+                radial-gradient(#121212 15%, transparent 16%),
+                radial-gradient(#121212 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #121212;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hard Memphis Shadows */
+        .memphis-card {
+            background-color: #ffffff;
+            border: 4px solid #121212;
+            box-shadow: 8px 8px 0px #121212;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .memphis-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 12px 12px 0px #121212;
+        }
+
+        .memphis-btn {
+            border: 4px solid #121212;
+            box-shadow: 5px 5px 0px #121212;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.15s ease;
+        }
+
+        .memphis-btn:hover:not(:disabled) {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #121212;
+        }
+
+        .memphis-btn:active:not(:disabled) {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px #121212;
+        }
+
+        .memphis-input {
+            border: 3px solid #121212;
+            box-shadow: 4px 4px 0px #121212;
+            outline: none;
+        }
+        
+        .memphis-input:focus {
+            background-color: #FFE600;
+        }
+
+        .memphis-badge {
+            border: 2px solid #121212;
+            box-shadow: 3px 3px 0px #121212;
+        }
+
+        /* Floating Memphis Background Elements Animation */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(8deg); }
+        }
+        @keyframes float-fast {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(-12deg); }
+        }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .float-1 { animation: float-slow 6s ease-in-out infinite; }
+        .float-2 { animation: float-fast 4.5s ease-in-out infinite; }
+        .spin-bg { animation: spin-slow 25s linear infinite; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFE600;
+            border-left: 3px solid #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF007F;
+            border: 3px solid #121212;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-memphis-pink selection:text-white">
+
+    <!-- FLOATING BACKGROUND MEMPHIS SHAPES -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+        <!-- Squiggle 1 -->
+        <svg class="absolute top-12 left-8 w-24 h-24 text-memphis-pink float-1" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8">
+            <path d="M10,50 Q25,25 40,50 T70,50 T100,50" />
+        </svg>
+        <!-- Triangle -->
+        <div class="absolute top-1/4 right-12 w-0 h-0 border-l-[35px] border-l-transparent border-r-[35px] border-r-transparent border-b-[60px] border-b-memphis-yellow float-2 rotate-12"></div>
+        <!-- Circle Grid -->
+        <div class="absolute bottom-20 left-10 w-28 h-28 bg-memphis-cyan rounded-full border-4 border-black float-2 flex items-center justify-center font-bold">
+            
+        </div>
+        <!-- Cross Shape -->
+        <div class="absolute bottom-1/3 right-1/4 text-memphis-purple text-6xl font-black float-1 spin-bg">
+            &#10010;
+        </div>
+        <!-- Slanted Pill -->
+        <div class="absolute top-1/3 left-1/3 w-32 h-10 bg-memphis-lime border-4 border-black rounded-full rotate-45 float-1"></div>
+    </div>
+
+    <div class="relative z-10 flex-grow">
+        <!-- HEADER / NAVIGATION -->
+        <header class="bg-memphis-yellow border-b-4 border-black p-4 md:p-6 mb-8">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-memphis-pink text-white text-3xl font-black px-4 py-2 border-4 border-black transform -rotate-3 shadow-[4px_4px_0px_#000]">
+                        WEIHNACHTS
+                    </div>
+                    <div class="bg-memphis-cyan text-black text-3xl font-black px-4 py-2 border-4 border-black transform rotate-2 shadow-[4px_4px_0px_#000]">
+                        WUNDER
+                    </div>
+                </div>
+                
+                <p class="font-bold text-center md:text-left text-sm md:text-base bg-white px-4 py-2 border-2 border-black rounded-lg shadow-[3px_3px_0px_#000]">
+                    ⚡ 24 STUNDEN UNTERRICHT // Das faire Workshop-Verlosungssystem ⚡
+                </p>
+
+                <!-- NAVIGATION TABS -->
+                <div class="flex gap-3">
+                    <button id="tab-user-btn" onclick="switchTab('user')" class="memphis-btn bg-memphis-pink text-white px-5 py-2 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i> Buchung
+                    </button>
+                    <button id="tab-admin-btn" onclick="requestAdminAccess()" class="memphis-btn bg-white text-black px-5 py-2 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-lock"></i> Admin & Verlosung <span id="admin-badge" class="bg-memphis-yellow border border-black text-xs px-2 py-0.5 rounded-full font-bold">15</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTAINER -->
+        <main class="max-w-7xl mx-auto px-4 pb-16">
+
+            <!-- TAB 1: USER BOOKING FORM -->
+            <section id="section-user" class="space-y-8">
+                <!-- HERO INSTRUCTION BOX -->
+                <div class="memphis-card bg-memphis-cyan p-6 md:p-8 transform rotate-1 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-20 text-9xl font-black select-none pointer-events-none">
+                        
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tight leading-none">
+                        Wähle deine <span class="bg-memphis-pink text-white px-2 py-1 transform -rotate-1 inline-block border-2 border-black">Top 3 Favoriten!</span>
+                    </h1>
+                    <p class="text-base md:text-lg font-bold text-gray-900 max-w-3xl leading-relaxed">
+                        So funktioniert's: Trage deinen Namen und deine Klasse/Stufe ein und markiere genau 3 Angebote aus unserem Katalog. Nach Anmeldeschluss verteilt unser verlässlicher Algorithmus die Plätze fair und verlost überbuchte Kurse!
+                    </p>
+                </div>
+
+                <!-- FORM & SELECTION SECTIONS -->
+                <form id="booking-form" onsubmit="handleUserSubmit(event)" class="space-y-8">
+                    
+                    <!-- USER DETAILS CARD -->
+                    <div class="memphis-card bg-white p-6 md:p-8">
+                        <h2 class="text-2xl font-black mb-6 flex items-center gap-3 border-b-4 border-black pb-3">
+                            <span class="bg-memphis-yellow text-black w-10 h-10 rounded-full flex items-center justify-center border-2 border-black font-extrabold">1</span>
+                            Deine Angaben
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block font-bold mb-2 uppercase text-sm tracking-wide" for="user-name">
+                                    <i class="fa-solid fa-user mr-1"></i> Vor- und Nachname *
+                                </label>
+                                <input type="text" id="user-name" required placeholder="z.B. Alex Memphis" class="w-full p-3 font-bold text-lg memphis-input bg-gray-50">
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-2 uppercase text-sm tracking-wide" for="user-class">
+                                    <i class="fa-solid fa-graduation-cap mr-1"></i> Klasse / Stufe *
+                                </label>
+                                <input type="text" id="user-class" required placeholder="z.B. 8b oder Q1" class="w-full p-3 font-bold text-lg memphis-input bg-gray-50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREFERENCE SELECTION SUMMARY CARD -->
+                    <div class="memphis-card bg-memphis-yellow p-6 md:p-8">
+                        <h2 class="text-2xl font-black mb-2 flex items-center gap-3">
+                            <span class="bg-memphis-pink text-white w-10 h-10 rounded-full flex items-center justify-center border-2 border-black font-extrabold">2</span>
+                            Deine gewählten 3 Favoriten
+                        </h2>
+                        <p class="font-bold mb-6 text-sm">Klicke unten auf die Angebote, um sie als Priorität 1, 2 und 3 festzulegen.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Priority 1 Slot -->
+                            <div id="slot-prio-1" class="border-4 border-dashed border-black bg-white p-4 min-h-[110px] flex flex-col justify-center items-center text-center relative rounded-lg">
+                                <span class="absolute -top-3 left-3 bg-memphis-pink text-white text-xs font-black px-2 py-0.5 border border-black uppercase">
+                                    Priorität 1 (Höchste)
+                                </span>
+                                <div id="prio-1-content" class="text-gray-400 font-bold text-sm">
+                                    <i class="fa-regular fa-star text-2xl mb-1 block"></i>
+                                    Wähle Angebot #1
+                                </div>
+                            </div>
+
+                            <!-- Priority 2 Slot -->
+                            <div id="slot-prio-2" class="border-4 border-dashed border-black bg-white p-4 min-h-[110px] flex flex-col justify-center items-center text-center relative rounded-lg">
+                                <span class="absolute -top-3 left-3 bg-memphis-cyan text-black text-xs font-black px-2 py-0.5 border border-black uppercase">
+                                    Priorität 2 (Zweite Wahl)
+                                </span>
+                                <div id="prio-2-content" class="text-gray-400 font-bold text-sm">
+                                    <i class="fa-regular fa-star text-2xl mb-1 block"></i>
+                                    Wähle Angebot #2
+                                </div>
+                            </div>
+
+                            <!-- Priority 3 Slot -->
+                            <div id="slot-prio-3" class="border-4 border-dashed border-black bg-white p-4 min-h-[110px] flex flex-col justify-center items-center text-center relative rounded-lg">
+                                <span class="absolute -top-3 left-3 bg-memphis-lime text-black text-xs font-black px-2 py-0.5 border border-black uppercase">
+                                    Priorität 3 (Dritte Wahl)
+                                </span>
+                                <div id="prio-3-content" class="text-gray-400 font-bold text-sm">
+                                    <i class="fa-regular fa-star text-2xl mb-1 block"></i>
+                                    Wähle Angebot #3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CATALOG OF OFFERS (20 CARDS) -->
+                    <div class="space-y-4">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 border-4 border-black shadow-[4px_4px_0px_#000]">
+                            <h3 class="text-xl font-black uppercase">
+                                Angebotssammlung (<span id="offer-count">20</span> Kurse verfügbar)
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase">Filter Kategorie:</span>
+                                <select id="category-filter" onchange="renderOffers()" class="memphis-input px-3 py-1 font-bold text-sm">
+                                    <option value="ALL">Alle Kategorien</option>
+                                    <option value="Design & Art">Design & Art</option>
+                                    <option value="Music & Audio">Music & Audio</option>
+                                    <option value="Tech & Retro">Tech & Retro</option>
+                                    <option value="Lifestyle & Motion">Lifestyle & Motion</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- GRID OF OFFERINGS -->
+                        <div id="offers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Offers rendered dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON AREA -->
+                    <div class="memphis-card bg-white p-6 text-center space-y-4">
+                        <p class="font-bold text-gray-700 text-sm">
+                            Hinweis: Nach der Absendung erhältst du eine Bestätigung. Die finale Zuweisung findet über das Verlosungssystem statt.
+                        </p>
+                        <button type="submit" id="submit-booking-btn" class="memphis-btn bg-memphis-pink text-white text-xl px-10 py-4 w-full md:w-auto hover:bg-black transition-colors">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Verbindliche Buchung Absenden
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+
+            <!-- TAB 2: ADMIN & ALLOCATION SYSTEM -->
+            <section id="section-admin" class="space-y-8 hidden">
+                <!-- ADMIN DASHBOARD HEADER -->
+                <div class="memphis-card bg-memphis-purple text-white p-6 md:p-8 transform -rotate-1">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <h1 class="text-3xl md:text-4xl font-black uppercase mb-2">
+                                Veranstalter Control Panel
+                            </h1>
+                            <p class="font-bold text-memphis-yellow text-sm md:text-base">
+                                Plätze konfigurieren, eingegangene Anmeldungen prüfen und den Verlosungs-Algorithmus ausführen.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="loadMockData()" class="memphis-btn bg-memphis-yellow text-black text-xs px-3 py-2">
+                                <i class="fa-solid fa-database mr-1"></i> +15 Test-Buchungen Laden
+                            </button>
+                            <button onclick="resetAllData()" class="memphis-btn bg-red-500 text-white text-xs px-3 py-2">
+                                <i class="fa-solid fa-trash mr-1"></i> Alles Zurücksetzen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTION BAR & STATS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="memphis-card bg-white p-6 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs font-black uppercase text-gray-500">Gesamte Anmeldungen</span>
+                            <span id="stat-total-submissions" class="text-4xl font-black">0</span>
+                        </div>
+                        <div class="w-12 h-12 bg-memphis-cyan border-2 border-black rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+
+                    <div class="memphis-card bg-white p-6 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs font-black uppercase text-gray-500">Verfügbare Gesamtplätze</span>
+                            <span id="stat-total-seats" class="text-4xl font-black">0</span>
+                        </div>
+                        <div class="w-12 h-12 bg-memphis-yellow border-2 border-black rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-chair"></i>
+                        </div>
+                    </div>
+
+                    <div class="memphis-card bg-memphis-lime p-6 flex flex-col justify-center">
+                        <button onclick="runLotteryAllocation()" class="memphis-btn bg-black text-white text-lg py-3 px-4 w-full flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-dice text-memphis-yellow text-2xl"></i>
+                            VERLOSUNG STARTEN!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TWO COLUMN LAYOUT FOR ADMIN: OFFER SEAT CONFIG & REGISTRATION LIST -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- OFFER SEAT CAPACITY MANAGEMENT -->
+                    <div class="memphis-card bg-white p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b-4 border-black pb-3">
+                            <h3 class="text-xl font-black uppercase">
+                                <i class="fa-solid fa-sliders mr-2"></i> Angebots-Plätze verwalten
+                            </h3>
+                            <span class="text-xs font-bold bg-memphis-yellow px-2 py-1 border border-black">20 Angebote</span>
+                        </div>
+                        
+                        <div id="admin-offers-list" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- REGISTERED USERS LIST -->
+                    <div class="memphis-card bg-white p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b-4 border-black pb-3">
+                            <h3 class="text-xl font-black uppercase">
+                                <i class="fa-solid fa-list-check mr-2"></i> Eingegangene Buchungen
+                            </h3>
+                            <span id="admin-submissions-count" class="text-xs font-bold bg-memphis-cyan px-2 py-1 border border-black">0 Personen</span>
+                        </div>
+
+                        <div id="admin-submissions-list" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ALLOCATION RESULTS SECTION (Hidden until run) -->
+                <div id="results-section" class="memphis-card bg-white p-6 md:p-8 space-y-6 hidden">
+                    <div class="bg-memphis-yellow p-4 border-4 border-black flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-black uppercase">
+                                🎲 Ergebnis der Verlosung & Zuteilung
+                            </h2>
+                            <p class="font-bold text-sm">
+                                Der Algorithmus hat die Teilnehmer nach ihren Prioritäten (Prio 1 &rarr; Prio 2 &rarr; Prio 3) zugeteilt.
+                            </p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="exportResultsCSV()" class="memphis-btn bg-memphis-pink text-white text-xs px-4 py-2">
+                                <i class="fa-solid fa-file-csv mr-1"></i> CSV Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STATS SUMMARY -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="p-4 bg-gray-100 border-2 border-black">
+                            <span class="block text-xs font-bold text-gray-600">Zugeordnete Personen</span>
+                            <span id="res-allocated" class="text-2xl font-black text-memphis-pink">0</span>
+                        </div>
+                        <div class="p-4 bg-gray-100 border-2 border-black">
+                            <span class="block text-xs font-bold text-gray-600">Warteliste / Ohne Platz</span>
+                            <span id="res-unassigned" class="text-2xl font-black text-red-600">0</span>
+                        </div>
+                        <div class="p-4 bg-gray-100 border-2 border-black">
+                            <span class="block text-xs font-bold text-gray-600">Erfolgsquote</span>
+                            <span id="res-rate" class="text-2xl font-black text-memphis-purple">0%</span>
+                        </div>
+                        <div class="p-4 bg-gray-100 border-2 border-black">
+                            <span class="block text-xs font-bold text-gray-600">Prio-1 Erfüllung</span>
+                            <span id="res-prio1-rate" class="text-2xl font-black text-memphis-lime">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- DETAILED RESULT PER OFFERING -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-black uppercase border-b-2 border-black pb-2">Teilnehmerlisten pro Kurs</h3>
+                        <div id="results-offers-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- UNASSIGNED PARTICIPANTS / WAITING LIST -->
+                    <div class="p-4 bg-red-100 border-4 border-black rounded-lg">
+                        <h3 class="text-lg font-black uppercase text-red-700 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Warteliste / Nicht zugeteilt
+                        </h3>
+                        <div id="results-unassigned-list" class="text-sm font-bold space-y-1">
+                            <!-- List of unassigned users -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white border-t-4 border-black p-6 text-center text-sm font-bold relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="bg-memphis-pink text-white px-2 py-0.5 text-xs font-black">Weihnachtswunder</span>
+                <span>Weihnachtswunder Buchungsportal &copy; 2026 Memphis Inc.</span>
+            </div>
+            <p class="text-gray-400 text-xs">
+                Design: Geometric Patterns, Vibrant Neon Colors, Bold Outlines & Radical Attitude.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SUCCESS MODAL FOR BOOKING SUBMISSION -->
+    <div id="booking-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="memphis-card bg-memphis-yellow max-w-lg w-full p-6 md:p-8 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-black text-white w-8 h-8 rounded-full border-2 border-black font-black hover:bg-memphis-pink transition-colors">
+                ✕
+            </button>
+            
+            <div class="text-center space-y-4">
+                <div class="w-16 h-16 bg-memphis-lime rounded-full border-4 border-black mx-auto flex items-center justify-center text-3xl text-black">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                
+                <h3 class="text-3xl font-black uppercase">Buchung Eingegangen!</h3>
+                <p class="font-bold text-sm">
+                    Vielen Dank, <span id="modal-user-name" class="underline decoration-memphis-pink"></span> (<span id="modal-user-class"></span>)! Wir haben deine 3 Favoriten registriert.
+                </p>
+
+                <div class="bg-white p-4 border-2 border-black text-left text-xs font-bold space-y-2">
+                    <div class="text-memphis-pink uppercase font-black border-b pb-1">Deine gewählten Prioritäten:</div>
+                    <div id="modal-choices"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PASSWORD AUTH MODAL -->
+    <div id="admin-auth-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="memphis-card bg-memphis-pink text-white max-w-md w-full p-6 md:p-8 relative">
+            <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 bg-black text-white w-8 h-8 rounded-full border-2 border-black font-black hover:bg-memphis-yellow hover:text-black transition-colors">
+                ✕
+            </button>
+            
+            <div class="text-center space-y-4">
+                <div class="w-16 h-16 bg-memphis-yellow text-black border-4 border-black mx-auto flex items-center justify-center text-3xl font-black rounded-full shadow-[4px_4px_0px_#000]">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                
+                <h3 class="text-3xl font-black uppercase text-white">Admin Zugang</h3>
+                <p class="font-bold text-xs text-memphis-yellow uppercase tracking-wider">
+                    🔒 Bitte gib das Passwort ein, um den Veranstalter-Bereich freizuschalten.
+                </p>
+
+                <form onsubmit="submitAdminPassword(event)" class="space-y-4">
+                    <div>
+                        <input type="password" id="admin-password-input" placeholder="Passwort eingeben..." required class="w-full p-3 font-bold text-center text-lg text-black memphis-input bg-white">
+                    </div>
+                    
+                    <div id="admin-auth-error" class="bg-black text-memphis-yellow border-2 border-black p-2 font-black text-xs uppercase hidden">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Falsches Passwort! Versuche es erneut.
+                    </div>
+
+                    <button type="submit" class="memphis-btn bg-memphis-cyan text-black px-6 py-3 text-sm w-full font-black hover:bg-white">
+                        <i class="fa-solid fa-unlock mr-1"></i> Entsperren
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // INITIAL 20 MEMPHIS OFFERINGS DATA
+        const initialOffers = [
+            { id: 1, title: "80s Synthwave Music Producing", category: "Music & Audio", seats: 8, icon: "fa-compact-disc", color: "bg-memphis-pink" },
+            { id: 2, title: "Memphis Pattern Design & Typography", category: "Design & Art", seats: 10, icon: "fa-shapes", color: "bg-memphis-cyan" },
+            { id: 3, title: "Pixel Art & Chiptune Workshop", category: "Tech & Retro", seats: 6, icon: "fa-gamepad", color: "bg-memphis-yellow" },
+            { id: 4, title: "Roller Skate Disco Basics", category: "Lifestyle & Motion", seats: 12, icon: "fa-person-skating", color: "bg-memphis-lime" },
+            { id: 5, title: "Cyberpunk JS & Creative Coding", category: "Tech & Retro", seats: 8, icon: "fa-code", color: "bg-memphis-purple" },
+            { id: 6, title: "Analog Tape & Cassette Mixing", category: "Music & Audio", seats: 5, icon: "fa-tape", color: "bg-memphis-orange" },
+            { id: 7, title: "Neon Sign & LED Sculpture", category: "Design & Art", seats: 7, icon: "fa-lightbulb", color: "bg-memphis-pink" },
+            { id: 8, title: "Retro Arcade Cabinet Hacking", category: "Tech & Retro", seats: 5, icon: "fa-tv", color: "bg-memphis-cyan" },
+            { id: 9, title: "VHS Glitch Video Editing", category: "Design & Art", seats: 10, icon: "fa-video", color: "bg-memphis-yellow" },
+            { id: 10, title: "Breakdance & Pop-Locking 101", category: "Lifestyle & Motion", seats: 15, icon: "fa-child-reaching", color: "bg-memphis-lime" },
+            { id: 11, title: "80s Hair Metal Guitar Riffs", category: "Music & Audio", seats: 6, icon: "fa-guitar", color: "bg-memphis-purple" },
+            { id: 12, title: "Airbrush T-Shirt Customizing", category: "Design & Art", seats: 10, icon: "fa-shirt", color: "bg-memphis-orange" },
+            { id: 13, title: "Commodore 64 BASIC Programming", category: "Tech & Retro", seats: 8, icon: "fa-desktop", color: "bg-memphis-pink" },
+            { id: 14, title: "Aerobics & Neon Fitness Party", category: "Lifestyle & Motion", seats: 20, icon: "fa-dumbbell", color: "bg-memphis-cyan" },
+            { id: 15, title: "Graffiti & Urban Pop Art", category: "Design & Art", seats: 10, icon: "fa-spray-can", color: "bg-memphis-yellow" },
+            { id: 16, title: "Vaporwave Beatmaking & Sampling", category: "Music & Audio", seats: 8, icon: "fa-sliders", color: "bg-memphis-lime" },
+            { id: 17, title: "Retro Board Game Design", category: "Design & Art", seats: 12, icon: "fa-chess-board", color: "bg-memphis-purple" },
+            { id: 18, title: "BMX Stunts & Skatepark Basics", category: "Lifestyle & Motion", seats: 8, icon: "fa-bicycle", color: "bg-memphis-orange" },
+            { id: 19, title: "80s Arcade Pinball Workshop", category: "Tech & Retro", seats: 6, icon: "fa-gears", color: "bg-memphis-pink" },
+            { id: 20, title: "Cocktails & Retro Soda Crafting", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" }
+        ];
+
+        // MOCK USER SUBMISSIONS FOR TESTING OUT OF THE BOX
+        const initialMockSubmissions = [
+            { id: 'sub-1', name: "Sven Vance", classGrade: "Klasse 9a", choices: [1, 3, 5], timestamp: new Date().toISOString() },
+            { id: 'sub-2', name: "Laura Croft", classGrade: "Stufe EF", choices: [2, 1, 4], timestamp: new Date().toISOString() },
+            { id: 'sub-3', name: "Marty McFly", classGrade: "Klasse 10b", choices: [1, 11, 3], timestamp: new Date().toISOString() },
+            { id: 'sub-4', name: "Doc Brown", classGrade: "Stufe Q2", choices: [5, 13, 8], timestamp: new Date().toISOString() },
+            { id: 'sub-5', name: "Mia Wallace", classGrade: "Klasse 8c", choices: [4, 10, 14], timestamp: new Date().toISOString() },
+            { id: 'sub-6', name: "Ferris Bueller", classGrade: "Stufe Q1", choices: [2, 7, 15], timestamp: new Date().toISOString() },
+            { id: 'sub-7', name: "Ellen Ripley", classGrade: "Stufe Q2", choices: [5, 8, 3], timestamp: new Date().toISOString() },
+            { id: 'sub-8', name: "Johnny Lawrence", classGrade: "Klasse 9c", choices: [10, 18, 4], timestamp: new Date().toISOString() },
+            { id: 'sub-9', name: "Daniel LaRusso", classGrade: "Klasse 9c", choices: [10, 4, 18], timestamp: new Date().toISOString() },
+            { id: 'sub-10', name: "Nancy Wheeler", classGrade: "Stufe EF", choices: [9, 2, 7], timestamp: new Date().toISOString() },
+            { id: 'sub-11', name: "Steve Harrington", classGrade: "Stufe Q1", choices: [14, 4, 20], timestamp: new Date().toISOString() },
+            { id: 'sub-12', name: "Max Mayfield", classGrade: "Klasse 8a", choices: [3, 8, 19], timestamp: new Date().toISOString() },
+            { id: 'sub-13', name: "Dustin Henderson", classGrade: "Klasse 8a", choices: [13, 3, 5], timestamp: new Date().toISOString() },
+            { id: 'sub-14', name: "Peter Venkman", classGrade: "Stufe Q2", choices: [7, 9, 15], timestamp: new Date().toISOString() },
+            { id: 'sub-15', name: "Egon Spengler", classGrade: "Stufe Q2", choices: [5, 13, 3], timestamp: new Date().toISOString() }
+        ];
+
+        // STATE APP
+        let offers = JSON.parse(localStorage.getItem('memphis_offers')) || initialOffers;
+        let submissions = JSON.parse(localStorage.getItem('memphis_submissions')) || initialMockSubmissions;
+        let selectedChoices = []; // holds IDs of selected offers [prio1, prio2, prio3]
+        let isAdminUnlocked = false; // Admin auth state
+
+        // SAVE STATE TO LOCAL STORAGE
+        function saveData() {
+            localStorage.setItem('memphis_offers', JSON.stringify(offers));
+            localStorage.setItem('memphis_submissions', JSON.stringify(submissions));
+            updateAdminStats();
+        }
+
+        // ADMIN PASSWORD PROTECTION LOGIC
+        function requestAdminAccess() {
+            if (isAdminUnlocked) {
+                switchTab('admin');
+            } else {
+                document.getElementById('admin-password-input').value = '';
+                document.getElementById('admin-auth-error').classList.add('hidden');
+                document.getElementById('admin-auth-modal').classList.remove('hidden');
+                setTimeout(() => document.getElementById('admin-password-input').focus(), 100);
+            }
+        }
+
+        function closeAdminAuthModal() {
+            document.getElementById('admin-auth-modal').classList.add('hidden');
+        }
+
+        function submitAdminPassword(event) {
+            event.preventDefault();
+            const inputPass = document.getElementById('admin-password-input').value;
+            const errorDiv = document.getElementById('admin-auth-error');
+
+            if (inputPass === 'Kemper') {
+                isAdminUnlocked = true;
+                closeAdminAuthModal();
+                switchTab('admin');
+            } else {
+                errorDiv.classList.remove('hidden');
+                document.getElementById('admin-password-input').value = '';
+                document.getElementById('admin-password-input').focus();
+            }
+        }
+
+        // NAVIGATION TAB SWITCHING
+        function switchTab(tab) {
+            const userTab = document.getElementById('section-user');
+            const adminTab = document.getElementById('section-admin');
+            const userBtn = document.getElementById('tab-user-btn');
+            const adminBtn = document.getElementById('tab-admin-btn');
+
+            if (tab === 'user') {
+                userTab.classList.remove('hidden');
+                adminTab.classList.add('hidden');
+                userBtn.className = "memphis-btn bg-memphis-pink text-white px-5 py-2 text-sm flex items-center gap-2";
+                adminBtn.className = "memphis-btn bg-white text-black px-5 py-2 text-sm flex items-center gap-2";
+            } else {
+                if (!isAdminUnlocked) {
+                    requestAdminAccess();
+                    return;
+                }
+                userTab.classList.add('hidden');
+                adminTab.classList.remove('hidden');
+                adminBtn.className = "memphis-btn bg-memphis-purple text-white px-5 py-2 text-sm flex items-center gap-2";
+                userBtn.className = "memphis-btn bg-white text-black px-5 py-2 text-sm flex items-center gap-2";
+                renderAdminOffersList();
+                renderAdminSubmissionsList();
+                updateAdminStats();
+            }
+        }
+
+        // RENDER OFFERS IN CATALOG (USER TAB)
+        function renderOffers() {
+            const grid = document.getElementById('offers-grid');
+            const filter = document.getElementById('category-filter').value;
+            grid.innerHTML = '';
+
+            const filteredOffers = filter === 'ALL' ? offers : offers.filter(o => o.category === filter);
+            document.getElementById('offer-count').textContent = filteredOffers.length;
+
+            filteredOffers.forEach(offer => {
+                const isSelected = selectedChoices.includes(offer.id);
+                const choiceIndex = selectedChoices.indexOf(offer.id); // 0 = prio 1, 1 = prio 2, 2 = prio 3
+
+                let badgeHtml = '';
+                if (isSelected) {
+                    const prioText = choiceIndex === 0 ? 'Prio 1' : choiceIndex === 1 ? 'Prio 2' : 'Prio 3';
+                    const badgeColor = choiceIndex === 0 ? 'bg-memphis-pink text-white' : choiceIndex === 1 ? 'bg-memphis-cyan text-black' : 'bg-memphis-lime text-black';
+                    badgeHtml = `<span class="memphis-badge ${badgeColor} text-xs font-black px-3 py-1 uppercase absolute -top-3 -right-3 z-20">★ ${prioText}</span>`;
+                }
+
+                const cardHtml = `
+                    <div class="memphis-card p-5 relative flex flex-col justify-between ${isSelected ? 'border-8 border-black transform scale-[1.02]' : ''}">
+                        ${badgeHtml}
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-3">
+                                <span class="text-xs font-black uppercase px-2 py-1 bg-black text-white rounded">
+                                    ${offer.category}
+                                </span>
+                                <span class="text-xs font-bold bg-memphis-yellow border border-black px-2 py-0.5">
+                                    <i class="fa-solid fa-chair mr-1"></i>${offer.seats} Plätze
+                                </span>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 ${offer.color} border-2 border-black rounded-lg flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid ${offer.icon}"></i>
+                                </div>
+                                <h4 class="font-black text-lg leading-tight">${offer.title}</h4>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t-2 border-black flex justify-between items-center">
+                            <button type="button" onclick="toggleSelectOffer(${offer.id})" class="memphis-btn ${isSelected ? 'bg-black text-white' : 'bg-white text-black'} text-xs px-4 py-2 w-full">
+                                ${isSelected ? '<i class="fa-solid fa-xmark mr-1"></i> Abwählen' : '<i class="fa-solid fa-plus mr-1"></i> Auswählen'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        // TOGGLE SELECTION OF OFFERS (MAX 3)
+        function toggleSelectOffer(offerId) {
+            const index = selectedChoices.indexOf(offerId);
+
+            if (index > -1) {
+                // Remove if already selected
+                selectedChoices.splice(index, 1);
+            } else {
+                // Add if less than 3
+                if (selectedChoices.length < 3) {
+                    selectedChoices.push(offerId);
+                } else {
+                    alert("Du kannst maximal 3 Angebote als Favoriten auswählen! Entferne zuerst eine Option.");
+                    return;
+                }
+            }
+
+            updateSelectedSlotsUI();
+            renderOffers();
+        }
+
+        // UPDATE SELECTED SLOTS DISPLAY AT TOP OF FORM
+        function updateSelectedSlotsUI() {
+            const prio1 = offers.find(o => o.id === selectedChoices[0]);
+            const prio2 = offers.find(o => o.id === selectedChoices[1]);
+            const prio3 = offers.find(o => o.id === selectedChoices[2]);
+
+            // Slot 1
+            const slot1 = document.getElementById('prio-1-content');
+            if (prio1) {
+                slot1.className = "text-black font-extrabold text-sm w-full";
+                slot1.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span><i class="fa-solid ${prio1.icon} text-memphis-pink mr-1"></i> ${prio1.title}</span>
+                        <button type="button" onclick="toggleSelectOffer(${prio1.id})" class="text-red-600 hover:text-black">✕</button>
+                    </div>
+                `;
+            } else {
+                slot1.className = "text-gray-400 font-bold text-sm";
+                slot1.innerHTML = `<i class="fa-regular fa-star text-2xl mb-1 block"></i> Wähle Angebot #1`;
+            }
+
+            // Slot 2
+            const slot2 = document.getElementById('prio-2-content');
+            if (prio2) {
+                slot2.className = "text-black font-extrabold text-sm w-full";
+                slot2.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span><i class="fa-solid ${prio2.icon} text-memphis-cyan mr-1"></i> ${prio2.title}</span>
+                        <button type="button" onclick="toggleSelectOffer(${prio2.id})" class="text-red-600 hover:text-black">✕</button>
+                    </div>
+                `;
+            } else {
+                slot2.className = "text-gray-400 font-bold text-sm";
+                slot2.innerHTML = `<i class="fa-regular fa-star text-2xl mb-1 block"></i> Wähle Angebot #2`;
+            }
+
+            // Slot 3
+            const slot3 = document.getElementById('prio-3-content');
+            if (prio3) {
+                slot3.className = "text-black font-extrabold text-sm w-full";
+                slot3.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span><i class="fa-solid ${prio3.icon} text-memphis-lime mr-1"></i> ${prio3.title}</span>
+                        <button type="button" onclick="toggleSelectOffer(${prio3.id})" class="text-red-600 hover:text-black">✕</button>
+                    </div>
+                `;
+            } else {
+                slot3.className = "text-gray-400 font-bold text-sm";
+                slot3.innerHTML = `<i class="fa-regular fa-star text-2xl mb-1 block"></i> Wähle Angebot #3`;
+            }
+        }
+
+        // SUBMIT USER BOOKING FORM
+        function handleUserSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('user-name').value.trim();
+            const classGrade = document.getElementById('user-class').value.trim();
+
+            if (!name || !classGrade) {
+                alert("Bitte gib deinen Namen und deine Klasse/Stufe ein.");
+                return;
+            }
+
+            if (selectedChoices.length !== 3) {
+                alert("Bitte wähle genau 3 verschiedene Kursangebot-Favoriten aus.");
+                return;
+            }
+
+            // Create submission record
+            const newSubmission = {
+                id: 'sub-' + Date.now(),
+                name: name,
+                classGrade: classGrade,
+                choices: [...selectedChoices],
+                timestamp: new Date().toISOString()
+            };
+
+            submissions.push(newSubmission);
+            saveData();
+
+            // Populate Modal
+            document.getElementById('modal-user-name').textContent = name;
+            document.getElementById('modal-user-class').textContent = classGrade;
+            const choicesContainer = document.getElementById('modal-choices');
+            choicesContainer.innerHTML = selectedChoices.map((id, index) => {
+                const off = offers.find(o => o.id === id);
+                return `<div><strong>Prio ${index + 1}:</strong> ${off ? off.title : ''}</div>`;
+            }).join('');
+
+            // Show Modal
+            document.getElementById('booking-modal').classList.remove('hidden');
+
+            // Reset Form & selections
+            document.getElementById('booking-form').reset();
+            selectedChoices = [];
+            updateSelectedSlotsUI();
+            renderOffers();
+        }
+
+        function closeModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+
+        // ADMIN SECTION LOGIC
+        function updateAdminStats() {
+            const totalSubmissions = submissions.length;
+            const totalSeats = offers.reduce((acc, o) => acc + parseInt(o.seats || 0), 0);
+
+            document.getElementById('stat-total-submissions').textContent = totalSubmissions;
+            document.getElementById('stat-total-seats').textContent = totalSeats;
+            document.getElementById('admin-submissions-count').textContent = `${totalSubmissions} Buchungen`;
+            document.getElementById('admin-badge').textContent = totalSubmissions;
+        }
+
+        // RENDER ADMIN OFFER CAPACITY EDITORS
+        function renderAdminOffersList() {
+            const list = document.getElementById('admin-offers-list');
+            list.innerHTML = '';
+
+            offers.forEach(offer => {
+                const html = `
+                    <div class="flex items-center justify-between p-3 bg-gray-50 border-2 border-black rounded">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 ${offer.color} border border-black flex items-center justify-center text-sm font-bold">
+                                <i class="fa-solid ${offer.icon}"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm leading-none">${offer.title}</h5>
+                                <span class="text-xs text-gray-500">${offer.category}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <label class="text-xs font-bold uppercase">Plätze:</label>
+                            <input type="number" min="1" max="50" value="${offer.seats}" onchange="updateOfferCapacity(${offer.id}, this.value)" class="w-16 p-1 text-center font-bold memphis-input text-sm">
+                        </div>
+                    </div>
+                `;
+                list.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function updateOfferCapacity(offerId, newCapacity) {
+            const capacity = parseInt(newCapacity) || 1;
+            const offer = offers.find(o => o.id === offerId);
+            if (offer) {
+                offer.seats = capacity;
+                saveData();
+            }
+        }
+
+        // RENDER ADMIN SUBMISSIONS LIST
+        function renderAdminSubmissionsList() {
+            const list = document.getElementById('admin-submissions-list');
+            list.innerHTML = '';
+
+            if (submissions.length === 0) {
+                list.innerHTML = `<p class="text-gray-500 text-sm font-bold italic">Noch keine Anmeldungen vorhanden.</p>`;
+                return;
+            }
+
+            submissions.forEach((sub, index) => {
+                const choicesTitles = sub.choices.map(id => {
+                    const o = offers.find(item => item.id === id);
+                    return o ? o.title : 'Unbekannt';
+                });
+
+                const html = `
+                    <div class="p-3 bg-white border-2 border-black rounded shadow-[2px_2px_0px_#000]">
+                        <div class="flex justify-between items-start gap-2 mb-1">
+                            <span class="font-extrabold text-sm">${index + 1}. ${sub.name}</span>
+                            <button onclick="deleteSubmission('${sub.id}')" class="text-xs text-red-600 hover:text-black font-bold">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2 font-bold"><i class="fa-solid fa-graduation-cap mr-1"></i>${sub.classGrade}</p>
+                        <div class="text-xs font-bold space-y-0.5 bg-yellow-50 p-2 border border-black rounded">
+                            <div class="text-memphis-pink"><span class="font-black">Prio 1:</span> ${choicesTitles[0]}</div>
+                            <div class="text-memphis-purple"><span class="font-black">Prio 2:</span> ${choicesTitles[1]}</div>
+                            <div class="text-blue-600"><span class="font-black">Prio 3:</span> ${choicesTitles[2]}</div>
+                        </div>
+                    </div>
+                `;
+                list.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function deleteSubmission(id) {
+            submissions = submissions.filter(s => s.id !== id);
+            saveData();
+            renderAdminSubmissionsList();
+        }
+
+        // LOAD PRE-POPULATED MOCK DATA
+        function loadMockData() {
+            submissions = [...initialMockSubmissions];
+            saveData();
+            renderAdminSubmissionsList();
+            alert("15 Test-Buchungen wurden erfolgreich geladen!");
+        }
+
+        function resetAllData() {
+            if (confirm("Möchtest du wirklich alle Buchungen löschen und Plätze zurücksetzen?")) {
+                submissions = [];
+                offers = JSON.parse(JSON.stringify(initialOffers));
+                saveData();
+                renderAdminOffersList();
+                renderAdminSubmissionsList();
+                document.getElementById('results-section').classList.add('hidden');
+            }
+        }
+
+
+        // FAIR LOTTERY / ALLOCATION ALGORITHM
+        function runLotteryAllocation() {
+            if (submissions.length === 0) {
+                alert("Es gibt noch keine Anmeldungen für die Verlosung!");
+                return;
+            }
+
+            // 1. Structure data: Offer allocations
+            const allocationMap = {}; // offerId -> array of assigned user objects
+            offers.forEach(o => {
+                allocationMap[o.id] = [];
+            });
+
+            const unassignedUsers = [];
+            let prio1MatchedCount = 0;
+
+            // Shuffle submissions randomly to guarantee fair lottery draw for oversubscribed choices
+            const shuffledSubmissions = [...submissions].sort(() => Math.random() - 0.5);
+
+            // 2. PASS 1: Try allocating Priority 1 choices
+            const pass2Queue = [];
+            shuffledSubmissions.forEach(user => {
+                const prio1Id = user.choices[0];
+                const offer = offers.find(o => o.id === prio1Id);
+
+                if (offer && allocationMap[prio1Id].length < offer.seats) {
+                    allocationMap[prio1Id].push({ user: user, prio: 1 });
+                    prio1MatchedCount++;
+                } else {
+                    pass2Queue.push(user);
+                }
+            });
+
+            // 3. PASS 2: Try allocating Priority 2 choices for unassigned
+            const pass3Queue = [];
+            pass2Queue.forEach(user => {
+                const prio2Id = user.choices[1];
+                const offer = offers.find(o => o.id === prio2Id);
+
+                if (offer && allocationMap[prio2Id].length < offer.seats) {
+                    allocationMap[prio2Id].push({ user: user, prio: 2 });
+                } else {
+                    pass3Queue.push(user);
+                }
+            });
+
+            // 4. PASS 3: Try allocating Priority 3 choices for unassigned
+            pass3Queue.forEach(user => {
+                const prio3Id = user.choices[2];
+                const offer = offers.find(o => o.id === prio3Id);
+
+                if (offer && allocationMap[prio3Id].length < offer.seats) {
+                    allocationMap[prio3Id].push({ user: user, prio: 3 });
+                } else {
+                    unassignedUsers.push(user);
+                }
+            });
+
+            // Calculate metrics
+            const totalSubmissionsCount = submissions.length;
+            const totalAllocated = totalSubmissionsCount - unassignedUsers.length;
+            const successRate = Math.round((totalAllocated / totalSubmissionsCount) * 100);
+            const prio1Rate = Math.round((prio1MatchedCount / totalSubmissionsCount) * 100);
+
+            // Display Statistics
+            document.getElementById('res-allocated').textContent = `${totalAllocated} / ${totalSubmissionsCount}`;
+            document.getElementById('res-unassigned').textContent = unassignedUsers.length;
+            document.getElementById('res-rate').textContent = `${successRate}%`;
+            document.getElementById('res-prio1-rate').textContent = `${prio1Rate}%`;
+
+            // Display Results per Offer
+            const resultsGrid = document.getElementById('results-offers-grid');
+            resultsGrid.innerHTML = '';
+
+            offers.forEach(offer => {
+                const assigned = allocationMap[offer.id];
+                const fillPercentage = Math.round((assigned.length / offer.seats) * 100);
+
+                let listHtml = assigned.length > 0
+                    ? assigned.map(item => `
+                        <div class="flex justify-between items-center py-1 px-2 text-xs border-b border-gray-200">
+                            <span class="font-bold">${item.user.name} <span class="text-gray-500 font-normal">(${item.user.classGrade})</span></span>
+                            <span class="memphis-badge text-[10px] px-1.5 py-0.2 ${item.prio === 1 ? 'bg-memphis-pink text-white' : item.prio === 2 ? 'bg-memphis-cyan text-black' : 'bg-memphis-lime text-black'}">Prio ${item.prio}</span>
+                        </div>
+                    `).join('')
+                    : `<p class="text-xs text-gray-400 italic p-2">Keine Zuweisungen</p>`;
+
+                const cardHtml = `
+                    <div class="border-2 border-black p-4 bg-white shadow-[4px_4px_0px_#000]">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-black text-base">${offer.title}</h4>
+                                <span class="text-xs text-gray-500 font-bold">${assigned.length} von ${offer.seats} Plätzen belegt</span>
+                            </div>
+                            <span class="text-xs font-black px-2 py-1 ${fillPercentage >= 100 ? 'bg-red-500 text-white' : 'bg-memphis-lime text-black'} border border-black">
+                                ${fillPercentage}% Full
+                            </span>
+                        </div>
+                        <div class="bg-gray-50 border border-black max-h-40 overflow-y-auto rounded">
+                            ${listHtml}
+                        </div>
+                    </div>
+                `;
+                resultsGrid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            // Display Unassigned / Waiting list
+            const unassignedContainer = document.getElementById('results-unassigned-list');
+            if (unassignedUsers.length > 0) {
+                unassignedContainer.innerHTML = unassignedUsers.map(u => `
+                    <div class="flex justify-between items-center bg-white p-2 border border-black">
+                        <span>${u.name} (${u.classGrade})</span>
+                        <span class="text-xs bg-red-200 text-red-800 px-2 py-0.5 border border-red-400">Warteliste</span>
+                    </div>
+                `).join('');
+            } else {
+                unassignedContainer.innerHTML = `<span class="text-green-700">🎉 Großartig! Alle Teilnehmer konnten mindestens einem Kurs zugeteilt werden!</span>`;
+            }
+
+            // Show results container
+            const resultsSec = document.getElementById('results-section');
+            resultsSec.classList.remove('hidden');
+            resultsSec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // EXPORT RESULTS TO CSV
+        function exportResultsCSV() {
+            if (submissions.length === 0) {
+                alert("Keine Daten zum Exportieren vorhanden!");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,ID,Name,Klasse_Stufe,Prio1_ID,Prio2_ID,Prio3_ID\n";
+            submissions.forEach(s => {
+                csvContent += `"${s.id}","${s.name}","${s.classGrade}",${s.choices[0]},${s.choices[1]},${s.choices[2]}\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "memphis_buchungen_export.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // INITIALIZATION ON LOAD
+        window.onload = function() {
+            renderOffers();
+            updateAdminStats();
+        };
+    </script>
+</body>
+</html>
