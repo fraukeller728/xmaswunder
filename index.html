@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Space Grotesk & Permanent Marker for authentic Memphis Pop look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -585,6 +585,9 @@
             localStorage.setItem('memphis_offers', JSON.stringify(offers));
             localStorage.setItem('memphis_submissions', JSON.stringify(submissions));
             updateAdminStats();
+            if (isAdminUnlocked) {
+                renderAdminOffersList();
+            }
         }
 
         // ADMIN PASSWORD PROTECTION LOGIC
@@ -835,16 +838,29 @@
             document.getElementById('admin-badge').textContent = totalSubmissions;
         }
 
-        // RENDER ADMIN OFFER CAPACITY EDITORS
+        // RENDER ADMIN OFFER CAPACITY EDITORS & PRIORITY POPULARITY STATS
         function renderAdminOffersList() {
             const list = document.getElementById('admin-offers-list');
             list.innerHTML = '';
 
             offers.forEach(offer => {
+                // Calculate how many participants chose this offer as Prio 1, 2, or 3
+                let p1Count = 0;
+                let p2Count = 0;
+                let p3Count = 0;
+
+                submissions.forEach(sub => {
+                    if (sub.choices[0] === offer.id) p1Count++;
+                    if (sub.choices[1] === offer.id) p2Count++;
+                    if (sub.choices[2] === offer.id) p3Count++;
+                });
+
+                const totalRequests = p1Count + p2Count + p3Count;
+
                 const html = `
-                    <div class="flex items-center justify-between p-3 bg-gray-50 border-2 border-black rounded">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 bg-gray-50 border-2 border-black rounded gap-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 ${offer.color} border border-black flex items-center justify-center text-sm font-bold">
+                            <div class="w-8 h-8 ${offer.color} border border-black flex items-center justify-center text-sm font-bold shrink-0">
                                 <i class="fa-solid ${offer.icon}"></i>
                             </div>
                             <div>
@@ -852,9 +868,25 @@
                                 <span class="text-xs text-gray-500">${offer.category}</span>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <label class="text-xs font-bold uppercase">Plätze:</label>
-                            <input type="number" min="1" max="50" value="${offer.seats}" onchange="updateOfferCapacity(${offer.id}, this.value)" class="w-16 p-1 text-center font-bold memphis-input text-sm">
+
+                        <div class="flex items-center gap-4 flex-wrap w-full sm:w-auto justify-end">
+                            <!-- Priority Selection Counts Badge -->
+                            <div class="flex items-center gap-1.5 bg-white px-2.5 py-1 border-2 border-black rounded text-xs font-bold" title="Wahlen als Priorität 1 / 2 / 3">
+                                <i class="fa-solid fa-heart text-memphis-pink mr-0.5"></i>
+                                <span class="font-black text-sm text-black" title="Gesamte Anfragen">${totalRequests}</span>
+                                <span class="text-gray-400 text-[10px]">Anfragen</span>
+                                <div class="flex gap-1 ml-1 text-[10px] font-black">
+                                    <span class="bg-memphis-pink text-white px-1.5 py-0.2 rounded border border-black" title="Prio 1 Wahl">P1: ${p1Count}</span>
+                                    <span class="bg-memphis-cyan text-black px-1.5 py-0.2 rounded border border-black" title="Prio 2 Wahl">P2: ${p2Count}</span>
+                                    <span class="bg-memphis-lime text-black px-1.5 py-0.2 rounded border border-black" title="Prio 3 Wahl">P3: ${p3Count}</span>
+                                </div>
+                            </div>
+
+                            <!-- Plätze Input Field -->
+                            <div class="flex items-center gap-2">
+                                <label class="text-xs font-bold uppercase">Plätze:</label>
+                                <input type="number" min="1" max="50" value="${offer.seats}" onchange="updateOfferCapacity(${offer.id}, this.value)" class="w-16 p-1 text-center font-bold memphis-input text-sm">
+                            </div>
                         </div>
                     </div>
                 `;
