@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Space Grotesk & Permanent Marker for authentic Memphis Pop look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -269,11 +269,11 @@
                         </div>
                     </div>
 
-                    <!-- CATALOG OF OFFERS (20 CARDS) -->
+                    <!-- CATALOG OF OFFERS -->
                     <div class="space-y-4">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 border-4 border-black shadow-[4px_4px_0px_#000]">
                             <h3 class="text-xl font-black uppercase">
-                                Angebotssammlung (<span id="offer-count">20</span> Kurse verfügbar)
+                                Angebotssammlung (<span id="offer-count">30</span> Kurse verfügbar)
                             </h3>
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-bold uppercase">Filter Kategorie:</span>
@@ -283,6 +283,7 @@
                                     <option value="Music & Audio">Music & Audio</option>
                                     <option value="Tech & Retro">Tech & Retro</option>
                                     <option value="Lifestyle & Motion">Lifestyle & Motion</option>
+                                    <option value="5-Q2">5-Q2</option>
                                 </select>
                             </div>
                         </div>
@@ -370,7 +371,7 @@
                             <h3 class="text-xl font-black uppercase">
                                 <i class="fa-solid fa-sliders mr-2"></i> Angebots-Plätze verwalten
                             </h3>
-                            <span class="text-xs font-bold bg-memphis-yellow px-2 py-1 border border-black">20 Angebote</span>
+                            <span class="text-xs font-bold bg-memphis-yellow px-2 py-1 border border-black">30 Angebote</span>
                         </div>
                         
                         <div id="admin-offers-list" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
@@ -531,28 +532,38 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // INITIAL 20 MEMPHIS OFFERINGS DATA
+        // INITIAL OFFERINGS DATA
         const initialOffers = [
-            { id: 1, title: "Horrorfilm drehen", category: "Film", seats: 8, icon: "fa-video", color: "bg-memphis-pink" },
-            { id: 2, title: "Vorlesen", category: "Lesen", seats: 10, icon: "fa-book", color: "bg-memphis-cyan" },
-            { id: 3, title: "Pixel Art & Chiptune Workshop", category: "Tech & Retro", seats: 6, icon: "fa-gamepad", color: "bg-memphis-yellow" },
-            { id: 4, title: "Roller Skate Disco Basics", category: "Lifestyle & Motion", seats: 12, icon: "fa-person-skating", color: "bg-memphis-lime" },
-            { id: 5, title: "Cyberpunk JS & Creative Coding", category: "Tech & Retro", seats: 8, icon: "fa-code", color: "bg-memphis-purple" },
-            { id: 6, title: "Analog Tape & Cassette Mixing", category: "Music & Audio", seats: 5, icon: "fa-tape", color: "bg-memphis-orange" },
-            { id: 7, title: "Neon Sign & LED Sculpture", category: "Design & Art", seats: 7, icon: "fa-lightbulb", color: "bg-memphis-pink" },
-            { id: 8, title: "Retro Arcade Cabinet Hacking", category: "Tech & Retro", seats: 5, icon: "fa-tv", color: "bg-memphis-cyan" },
-            { id: 9, title: "VHS Glitch Video Editing", category: "Design & Art", seats: 10, icon: "fa-video", color: "bg-memphis-yellow" },
-            { id: 10, title: "Breakdance & Pop-Locking 101", category: "Lifestyle & Motion", seats: 15, icon: "fa-child-reaching", color: "bg-memphis-lime" },
-            { id: 11, title: "80s Hair Metal Guitar Riffs", category: "Music & Audio", seats: 6, icon: "fa-guitar", color: "bg-memphis-purple" },
-            { id: 12, title: "Airbrush T-Shirt Customizing", category: "Design & Art", seats: 10, icon: "fa-shirt", color: "bg-memphis-orange" },
-            { id: 13, title: "Commodore 64 BASIC Programming", category: "Tech & Retro", seats: 8, icon: "fa-desktop", color: "bg-memphis-pink" },
-            { id: 14, title: "Aerobics & Neon Fitness Party", category: "Lifestyle & Motion", seats: 20, icon: "fa-dumbbell", color: "bg-memphis-cyan" },
-            { id: 15, title: "Graffiti & Urban Pop Art", category: "Design & Art", seats: 10, icon: "fa-spray-can", color: "bg-memphis-yellow" },
-            { id: 16, title: "Vaporwave Beatmaking & Sampling", category: "Music & Audio", seats: 8, icon: "fa-sliders", color: "bg-memphis-lime" },
-            { id: 17, title: "Retro Board Game Design", category: "Design & Art", seats: 12, icon: "fa-chess-board", color: "bg-memphis-purple" },
-            { id: 18, title: "BMX Stunts & Skatepark Basics", category: "Lifestyle & Motion", seats: 8, icon: "fa-bicycle", color: "bg-memphis-orange" },
-            { id: 19, title: "80s Arcade Pinball Workshop", category: "Tech & Retro", seats: 6, icon: "fa-gears", color: "bg-memphis-pink" },
-            { id: 20, title: "Cocktails & Retro Soda Crafting", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" }
+            { id: 1, title: "Adventsgeschichte lesen: Hinter verzauberten Fenstern", category: "5-Q2", seats: 20, icon: "fa-video", color: "bg-memphis-pink" },
+            { id: 2, title: "Plakate gestalten", category: "Lesen", seats: 20, icon: "fa-book", color: "bg-memphis-cyan" },
+            { id: 3, title: "Bläserensemble op Jöck em Veedel", category: "Tech & Retro", seats: 20, icon: "fa-gamepad", color: "bg-memphis-yellow" },
+            { id: 4, title: "Glitzer-Windlichter gestalten", category: "Lifestyle & Motion", seats: 20, icon: "fa-person-skating", color: "bg-memphis-lime" },
+            { id: 5, title: "Vorlesestunde in der Bibliothek: Hilfe, die Herdmanns kommen", category: "Tech & Retro", seats: 30, icon: "fa-code", color: "bg-memphis-purple" },
+            { id: 6, title: "Journalismus und Demokratie – Erfahrungsberichte eines Journalisten und Abenteuer-Sportlers", category: "Music & Audio", seats: 30, icon: "fa-tape", color: "bg-memphis-orange" },
+            { id: 7, title: "Meditatives Zeichnen", category: "Design & Art", seats: 15, icon: "fa-lightbulb", color: "bg-memphis-pink" },
+            { id: 8, title: "Eine gruselige Nacht – gemeinsames Lesen von Gruselgeschichten und -gedichten", category: "Tech & Retro", seats: 30, icon: "fa-tv", color: "bg-memphis-cyan" },
+            { id: 9, title: "Nachtwanderung mit Knicklichtern im Blücherpark", category: "Design & Art", seats: 10, icon: "fa-video", color: "bg-memphis-yellow" },
+            { id: 10, title: "Gesellschaftsspiel:Werwölfe von Düsterwald", category: "Lifestyle & Motion", seats: 15, icon: "fa-child-reaching", color: "bg-memphis-lime" },
+            { id: 11, title: "Freundschaftsspiel Fußball Q1und Q2 MSM gegen DKG", category: "Music & Audio", seats: 6, icon: "fa-guitar", color: "bg-memphis-purple" },
+            { id: 12, title: "Karaoke", category: "Design & Art", seats: 10, icon: "fa-shirt", color: "bg-memphis-orange" },
+            { id: 13, title: "Vorlesung: Vom Tagesgeld zum Aktiendepot – finanzielle Bildung", category: "Tech & Retro", seats: 8, icon: "fa-desktop", color: "bg-memphis-pink" },
+            { id: 14, title: "Brettball", category: "Lifestyle & Motion", seats: 20, icon: "fa-dumbbell", color: "bg-memphis-cyan" },
+            { id: 15, title: "Tischtennis", category: "Design & Art", seats: 10, icon: "fa-spray-can", color: "bg-memphis-yellow" },
+            { id: 16, title: "NEON-NIGHTS – Schwarzlicht-Portraits nach Mitternacht", category: "Music & Audio", seats: 20, icon: "fa-sliders", color: "bg-memphis-lime" },
+            { id: 17, title: "Astrophysik bei Nacht", category: "Design & Art", seats: 16, icon: "fa-chess-board", color: "bg-memphis-purple" },
+            { id: 18, title: "Joggen mit Stirnlampe im Blücherpark", category: "Lifestyle & Motion", seats: 20, icon: "fa-bicycle", color: "bg-memphis-orange" },
+            { id: 19, title: "Töpfern am Morgen", category: "Tech & Retro", seats: 15, icon: "fa-gears", color: "bg-memphis-pink" },
+            { id: 20, title: "Theater-Frühsport", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 21, title: "Volleyball: Teacher-Dreamteam gegen Schüler_innen", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 22, title: "Interkulturelles Frühstück", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 23, title: "Schach-Turnier", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 24, title: "SingStar-Spiel – Chart-Songs raten", category: "Lifestyle & Motion", seats: 12, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 25, title: "Fotografie", category: "Lifestyle & Motion", seats: 15, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 26, title: "Soap Boxing – finde die richtigen Worte zu einem wichtigen Thema, z.B. Tierschutz", category: "Lifestyle & Motion", seats: 25, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 27, title: "Badminton", category: "Lifestyle & Motion", seats: 24, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 28, title: "Badminton", category: "Lifestyle & Motion", seats: 24, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 29, title: "Fußball: 5er-Schüler_innen gegen 5er-Eltern", category: "Lifestyle & Motion", seats: 24, icon: "fa-glass-water", color: "bg-memphis-cyan" },
+            { id: 30, title: "Adventliches Singen", category: "Lifestyle & Motion", seats: 25, icon: "fa-glass-water", color: "bg-memphis-cyan" }
         ];
 
         // MOCK USER SUBMISSIONS FOR TESTING OUT OF THE BOX
